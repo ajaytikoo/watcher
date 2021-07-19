@@ -309,7 +309,10 @@ class NovaHelper(object):
 
         return True
 
-    def live_migrate_instance(self, instance_id, dest_hostname, retry=120):
+    def live_migrate_instance(self,
+            instance_id,
+            dest_hostname,
+            retry=CONF.nova_helper.live_migration_timeout):
         """This method does a live migration of a given instance
 
         This method uses the Nova built-in live_migrate()
@@ -326,6 +329,7 @@ class NovaHelper(object):
         LOG.debug(
             "Trying a live migrate instance %(instance)s ",
             {'instance': instance_id})
+        LOG.debug("Instance migration timeout set to %s seconds", retry)
 
         # Looking for the instance to migrate
         instance = self.find_instance(instance_id)

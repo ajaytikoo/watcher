@@ -38,6 +38,7 @@ from watcher.conf import keystone_client
 from watcher.conf import monasca_client
 from watcher.conf import neutron_client
 from watcher.conf import nova_client
+from watcher.conf import nova_helper
 from watcher.conf import paths
 from watcher.conf import placement_client
 from watcher.conf import planner
@@ -56,6 +57,7 @@ applier.register_opts(CONF)
 decision_engine.register_opts(CONF)
 monasca_client.register_opts(CONF)
 nova_client.register_opts(CONF)
+nova_helper.register_opts(CONF)
 glance_client.register_opts(CONF)
 gnocchi_client.register_opts(CONF)
 keystone_client.register_opts(CONF)
